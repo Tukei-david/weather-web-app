@@ -44,14 +44,14 @@ weatherForm.addEventListener('submit', (e) => {
     errorMessage.textContent = 'Loading...'
     successMessage.textContent = ' '
     
-    fetch('http://localhost:3000/weather/?address=' + location  ).then( (response) => {
+    fetch('/weather/?address=' + location  ).then( (response) => {
         response.json().then( (data) => {
             if (data.error) {
                 return errorMessage.textContent = data.error
                 // return console.log(data.error)
             }else {
                 errorMessage.textContent = data.forecast
-                successMessage.textContent = data.address
+                successMessage.textContent = data.location
                 // console.log(
                 //     data.forecast,
                 //     data.location,

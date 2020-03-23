@@ -12,7 +12,10 @@ const foreCast = (latitude, longitude, callback) => {
             // const latValue = body.latitude
             // const longValue = body.longitude
             // if (latValue === latitude && longValue === longitude) {
-                callback(undefined, response.body.daily.data[0].summary + ' It is currently ' + response.body.hourly.data[0].temperature + ' degrees out' )
+                callback(
+                    undefined, response.body.daily.data[0].summary + '. It is currently ' + response.body.hourly.data[0].temperature + ' degrees out' +
+                     '\n'  + 'Today the highest temperature is ' + response.body.daily.data[0].temperatureHigh + ' degress and lowest temperature is ' + response.body.daily.data[0].temperatureLow + ' degrees' 
+                    )
         }
     }
     )

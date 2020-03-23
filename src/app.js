@@ -8,6 +8,8 @@ const forecastPath = require('./utils/forecast')
 //We use habdlebars npm modules to link same header and footers in every page of our app.
 // We use it short form.. hbs becouse of express module
 const app = express()
+// For viewing in heroku .. We want to access enviroment viables
+const port = process.env.PORT || 3000
 
 // Store your page in a variable
 const homePageDirectory = path.join(__dirname, '../public' )
@@ -161,6 +163,6 @@ app.get('*', (req, res) => {
 // })
 
 // That app will start by listenig to the default webdeveloper port
-app.listen(3000, () => {
-    console.log('server is up on port 3000')
+app.listen(port, () => {
+    console.log('server is up on port ' + port)
 })
